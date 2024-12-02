@@ -1,10 +1,11 @@
 import React from "react";
+import HomePage from "./Pages/HomePage/HomePage";
 
 const App = () => {
   return (
-    <div className="text-green-300 flex justify-center items-center text-2xl">
-      Hello World
-    </div>
+    <>
+      <HomePage />
+    </>
   );
 };
 
