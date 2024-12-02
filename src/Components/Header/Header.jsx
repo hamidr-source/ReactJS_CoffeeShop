@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Search from "./Search";
 
 const Header = () => {
   const [windowSize, setWindowSize] = useState({
@@ -24,9 +25,12 @@ const Header = () => {
         <div>Coffee</div>
         <div>
           {windowSize.width <= 425 ? (
-            <button onClick={() => setMobileMenu(true)}>
-              <i className="fa-solid fa-bars"></i>
-            </button>
+            <div className="flex gap-4">
+              <Search />
+              <button onClick={() => setMobileMenu(true)}>
+                <i className="fa-solid fa-bars text-3xl"></i>
+              </button>
+            </div>
           ) : (
             <>
               <span>About</span>
