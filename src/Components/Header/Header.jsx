@@ -13,8 +13,8 @@ const Header = () => {
       x: 0,
       transition: {
         type: 'spring',
-        stiffness: 200,
-        damping: 20,
+        stiffness: 300,
+        damping: 40,
       },
     },
     closed: {
@@ -65,7 +65,7 @@ const Header = () => {
         animate={mobileMenu ? 'open' : 'closed'}
         className={
           mobileMenu
-            ? "absolute top-0 right-0 bg-white shadow-lg w-3/4 h-full z-20 flex flex-col gap-8"
+            ? "fixed top-0 right-0 bg-white shadow-lg w-3/4 h-full z-20 flex flex-col gap-8"
             : "hidden"
         }
       >
