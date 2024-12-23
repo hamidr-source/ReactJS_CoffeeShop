@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Search from "./Search";
 
 const Header = () => {
@@ -6,6 +7,25 @@ const Header = () => {
     width: window.innerWidth,
   });
   const [mobileMenu, setMobileMenu] = useState(false);
+
+  const sidebarVariants = {
+    open: {
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 200,
+        damping: 20,
+      },
+    },
+    closed: {
+      x: '100%',
+      transition: {
+        type: 'spring',
+        stiffness: 200,
+        damping: 20,
+      },
+    },
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -28,7 +48,7 @@ const Header = () => {
             <div className="flex gap-4">
               <Search />
               <button onClick={() => setMobileMenu(true)}>
-                <i className="fa-solid fa-bars text-3xl"></i>
+                <i className="fa-solid fa-bars text-3xl text-gray-700"></i>
               </button>
             </div>
           ) : (
@@ -40,7 +60,9 @@ const Header = () => {
           )}
         </div>
       </div>
-      <div
+      <motion.div
+        variants={sidebarVariants}
+        animate={mobileMenu ? 'open' : 'closed'}
         className={
           mobileMenu
             ? "absolute top-0 right-0 bg-white shadow-lg w-3/4 h-full z-20 flex flex-col gap-8"
@@ -49,7 +71,7 @@ const Header = () => {
       >
         <div className="mt-3 ml-3">
           <button onClick={() => setMobileMenu(false)}>
-            <i className="fa-solid fa-x text-red-600 font-bold"></i>
+            <i className="fa-solid fa-x text-red-600 font-bold transition-all duration-500"></i>
           </button>
         </div>
         <div className="flex flex-col gap-6 h-1/3">
@@ -66,7 +88,7 @@ const Header = () => {
             <i className="fa-solid fa-user"></i>Login
           </p>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };
