@@ -8,6 +8,10 @@
   overflow-x: hidden;
 }
 
+* {
+  @apply transition-colors duration-300;
+}
+
 .modal-content {
   position: fixed;
   top: 0;
