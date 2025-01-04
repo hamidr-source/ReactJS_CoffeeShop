@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Search from "./Search";
+import ThemeController from "../ThemeController/ThemeController";
 
 const Header = () => {
   const [windowSize, setWindowSize] = useState({
@@ -87,6 +88,9 @@ const Header = () => {
           <p className="pl-6 h-1/4 w-full text-gray-700 flex gap-2 items-center hover:text-white hover:bg-gray-500">
             <i className="fa-solid fa-user"></i>Login
           </p>
+        </div>
+        <div className="absolute bottom-4 right-4">
+          <ThemeController />
         </div>
       </motion.div>
     </>
