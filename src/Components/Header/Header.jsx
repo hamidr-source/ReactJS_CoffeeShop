@@ -2,26 +2,28 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Search from "./Search";
 import ThemeController from "../ThemeController/ThemeController";
+import { useTheme } from "../../Context/ThemeContext";
 
 const Header = () => {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
   });
   const [mobileMenu, setMobileMenu] = useState(false);
+  const { isDarkMode } = useTheme();
 
   const sidebarVariants = {
     open: {
       x: 0,
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 300,
         damping: 40,
       },
     },
     closed: {
-      x: '100%',
+      x: "100%",
       transition: {
-        type: 'spring',
+        type: "spring",
         stiffness: 200,
         damping: 20,
       },
@@ -63,10 +65,12 @@ const Header = () => {
       </div>
       <motion.div
         variants={sidebarVariants}
-        animate={mobileMenu ? 'open' : 'closed'}
+        animate={mobileMenu ? "open" : "closed"}
         className={
           mobileMenu
-            ? "fixed top-0 right-0 shadow-lg w-3/4 h-full z-30 bg-primary flex flex-col gap-8"
+            ? `bg-primary-${
+                isDarkMode ? "dark" : "light"
+              } fixed top-0 right-0 shadow-lg w-3/4 h-full z-30 bg-primary flex flex-col gap-8`
             : "hidden"
         }
       >
