@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { motion } from "framer-motion";
 import Search from "./Search";
 import SideBar from "./SideBar";
@@ -10,7 +10,7 @@ const Header = () => {
   });
   const [mobileMenu, setMobileMenu] = useState(false);
   const { isDarkMode } = useTheme();
-  console.log(isDarkMode);
+
   const sidebarVariants = {
     open: {
       x: 0,
@@ -44,7 +44,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex w-full h-1/6  justify-between items-center p-2 text-xl sticky top-0 right-0 left-0 z-10 bg-accent">
+      <div className="flex justify-between w-full h-1/6 items-center p-2 text-xl sticky top-0 right-0 left-0 z-10 bg-accent">
         <div>Coffee</div>
         <div>
           {windowSize.width <= 425 ? (
@@ -63,6 +63,14 @@ const Header = () => {
           )}
         </div>
       </div>
+      {mobileMenu && (
+        <div
+          className={`fixed inset-0 bg-black/50 z-20 ${
+            isDarkMode ? "bg-black/70" : "bg-gray-200/50"
+          }`}
+          onClick={() => setMobileMenu(false)}
+        ></div>
+      )}
       <motion.div
         variants={sidebarVariants}
         animate={mobileMenu ? "open" : "closed"}
@@ -76,7 +84,7 @@ const Header = () => {
       >
         <div className="mt-3 ml-3">
           <button onClick={() => setMobileMenu(false)}>
-            <i className="fa-solid fa-x  font-bold transition-all duration-500"></i>
+            <i className="fa-solid fa-arrow-right font-bold mt-3 transition-all duration-500"></i>
           </button>
         </div>
         <SideBar />
