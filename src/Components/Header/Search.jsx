@@ -5,7 +5,7 @@ const Search = () => {
   return (
     <>
       <button
-        className=" w-10 h-10 rounded-3xl"
+        className="w-10 h-10 rounded-3xl"
         onClick={() => setOpenSearchBar(true)}
       >
         <i className="fa-solid fa-magnifying-glass"></i>
@@ -15,7 +15,7 @@ const Search = () => {
           <div className="modal-content">
             <input
               type="text"
-              className="absolute top-14 left-1/2 -translate-x-1/2 w-3/4 h-10 outline-none p-2 rounded-lg"
+              className="absolute top-14 left-1/2 -translate-x-1/2 w-3/4 h-10 outline-none p-2 rounded-lg text-text-light"
             />
             <button
               className="absolute top-2 left-2"

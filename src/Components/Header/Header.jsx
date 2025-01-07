@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Search from "./Search";
-import ThemeController from "../ThemeController/ThemeController";
+import SideBar from "./SideBar";
 import { useTheme } from "../../Context/ThemeContext";
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
   });
   const [mobileMenu, setMobileMenu] = useState(false);
   const { isDarkMode } = useTheme();
-
+  console.log(isDarkMode);
   const sidebarVariants = {
     open: {
       x: 0,
@@ -79,23 +79,7 @@ const Header = () => {
             <i className="fa-solid fa-x  font-bold transition-all duration-500"></i>
           </button>
         </div>
-        <div className="flex flex-col gap-6 h-1/3">
-          <p className="pl-6 h-1/4 w-full flex gap-2 items-center">
-            <i className="fa-solid fa-house"></i>Home
-          </p>
-          <p className="pl-6 h-1/4 w-full flex gap-2 items-center">
-            <i className="fa-solid fa-info"></i>About
-          </p>
-          <p className="pl-6 h-1/4 w-full flex gap-2 items-center">
-            <i className="fa-solid fa-address-book"></i>Contact
-          </p>
-          <p className="pl-6 h-1/4 w-full flex gap-2 items-center">
-            <i className="fa-solid fa-user"></i>Login
-          </p>
-        </div>
-        <div className="absolute bottom-4 right-4">
-          <ThemeController />
-        </div>
+        <SideBar />
       </motion.div>
     </>
   );

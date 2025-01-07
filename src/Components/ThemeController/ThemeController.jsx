@@ -8,15 +8,15 @@ const ThemeController = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className={`text-text-${isDarkMode ? "dark" : "light"} font-bold text-3xl`}
+      className="font-bold text-2xl"
       animate={{
         rotate: isDarkMode ? 0 : 360,
       }}
     >
       {isDarkMode ? (
-        <i className="fa-regular fa-sun"></i>
+        <i className="text-text-dark fa-regular fa-sun"></i>
       ) : (
-        <i className="fa-regular fa-moon"></i>
+        <i className="text-text-light fa-regular fa-moon"></i>
       )}
     </motion.button>
   );
