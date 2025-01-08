@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import ThemeController from "../ThemeController/ThemeController";
 
 const SideBar = () => {
@@ -9,19 +9,13 @@ const SideBar = () => {
     { title: "Login", icon: "fa-solid fa-user" },
   ];
 
-  const [activeItem, setActiveItem] = useState(null);
-
   return (
     <>
       <div className="flex flex-col gap-6 h-1/3 group">
         {sideBarNavigation.map((item, index) => (
           <p
             key={index}
-            className={`pl-6 h-1/4 w-full flex gap-2 items-center 
-              ${activeItem === index ? "text-interactive-active text-white" : ""} 
-              `}
-            onMouseEnter={() => setActiveItem(index)}
-            onMouseLeave={() => setActiveItem(null)}
+            className="pl-6 h-1/4 w-full flex gap-2 items-center"
           >
             <i className={item.icon}></i>
             {item.title}
