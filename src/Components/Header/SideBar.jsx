@@ -14,11 +14,11 @@ const SideBar = () => {
 
   return (
     <>
-      <div className="flex flex-col gap-6 h-1/3 group">
+      <div className="flex flex-col gap-10 h-1/3 group mt-5">
         {sideBarNavigation.map((item, index) => (
           <p
             key={index}
-            className={`px-12 h-1/4 w-5/6 flex gap-2 items-center duration-500 rounded-xl ${
+            className={`mx-auto px-6 h-1/4 w-5/6 flex gap-2 items-center duration-500 rounded-xl ${
               index === hoveredIndex
                 ? isDarkMode
                   ? "text-interactive-hover bg-tertiary-dark"
