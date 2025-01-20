@@ -6,6 +6,9 @@ const HomePage = () => {
   return (
     <div className="container w-screen h-screen">
       <Header />
+      <div className="h-screen">
+        
+      </div>
       <Footer />
     </div>
   );

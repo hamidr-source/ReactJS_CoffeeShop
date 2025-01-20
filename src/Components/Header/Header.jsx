@@ -78,7 +78,7 @@ const Header = () => {
           mobileMenu
             ? `bg-primary-${
                 isDarkMode ? "dark" : "light"
-              } fixed top-0 right-0 shadow-lg w-3/4 h-full z-30 bg-primary flex flex-col gap-8`
+              } fixed top-0 right-0 shadow-lg w-3/4 h-full z-30 flex flex-col gap-8`
             : "hidden"
         }
       >
