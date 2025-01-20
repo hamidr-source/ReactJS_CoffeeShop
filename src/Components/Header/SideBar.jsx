@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import ThemeController from "../ThemeController/ThemeController";
+import { useTheme } from "../../Context/ThemeContext";
 
 const SideBar = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const { isDarkMode } = useTheme();
   const sideBarNavigation = [
     { title: "Home", icon: "fa-solid fa-house" },
     { title: "Contact", icon: "fa-solid fa-address-book" },
@@ -15,7 +18,15 @@ const SideBar = () => {
         {sideBarNavigation.map((item, index) => (
           <p
             key={index}
-            className="pl-6 h-1/4 w-full flex gap-2 items-center"
+            className={`px-12 h-1/4 w-5/6 flex gap-2 items-center duration-500 rounded-xl ${
+              index === hoveredIndex
+                ? isDarkMode
+                  ? "text-interactive-hover bg-tertiary-dark"
+                  : "text-interactive-hover bg-tertiary-light"
+                : ""
+            }`}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
           >
             <i className={item.icon}></i>
             {item.title}
