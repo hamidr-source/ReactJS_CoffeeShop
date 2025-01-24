@@ -29,3 +29,14 @@
   width: 100vw;
   overflow-y: auto;
 }
+
+.slick-slider ul {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.slick-list {
+  height: 80%;
+}

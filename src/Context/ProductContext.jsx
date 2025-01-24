@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 const ProductContext = createContext();
-export const useProducts = () => useContext(ProductContext)
+export const useProducts = () => useContext(ProductContext);
 
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState();
@@ -14,7 +14,7 @@ const ProductProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductContext.Provider value={products}>
+    <ProductContext.Provider value={{ products }}>
       {children}
     </ProductContext.Provider>
   );

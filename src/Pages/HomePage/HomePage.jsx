@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
-import CustomSlider from "./Slider";
+import HomeSlider from "./HomeSlider";
 
 
 const HomePage = () => {
@@ -9,7 +9,7 @@ const HomePage = () => {
     <div className="container w-screen h-screen">
       <Header />
       <div className="h-screen">
-        <CustomSlider />
+        <HomeSlider />
       </div>
       <Footer />
     </div>
