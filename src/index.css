@@ -8,10 +8,6 @@
   overflow-x: hidden;
 }
 
-/* * {
-  @apply transition-colors duration-300;
-} */
-
 .modal-content {
   position: fixed;
   top: 0;
@@ -32,11 +28,11 @@
 
 .slick-slider ul {
   position: absolute;
-  bottom: 0;
+  bottom: 5px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .slick-list {
-  height: 80%;
+  height: 90%;
 }

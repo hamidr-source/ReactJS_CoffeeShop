@@ -5,7 +5,7 @@ const ProductContext = createContext();
 export const useProducts = () => useContext(ProductContext);
 
 const ProductProvider = ({ children }) => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     axios
