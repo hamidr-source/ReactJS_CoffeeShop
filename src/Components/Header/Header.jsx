@@ -76,8 +76,8 @@ const Header = () => {
         animate={mobileMenu ? "open" : "closed"}
         className={
           mobileMenu
-            ? `bg-primary-${
-                isDarkMode ? "dark" : "light"
+            ? `    ${
+                isDarkMode ? "bg-primary-dark" : "bg-primary-light"
               } fixed top-0 right-0 shadow-lg w-3/4 h-full z-30 flex flex-col gap-8`
             : "hidden"
         }

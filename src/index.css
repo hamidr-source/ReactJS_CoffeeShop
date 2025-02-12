@@ -33,6 +33,10 @@
   transform: translateX(-50%);
 }
 
+.slick-slider ul li button {
+  color: #e67e22 !important;
+}
+
 .slick-list {
   height: 90%;
 }
