@@ -8,9 +8,16 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://fake-coffee-api.vercel.app/api")
-      .then((res) => setProducts(res.data));
+    const fetchProducts = async () => {
+      try {
+        const res = await axios.get("https://fake-coffee-api.vercel.app/api");
+        setProducts(res.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   return (

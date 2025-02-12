@@ -18,7 +18,7 @@ const HomeSlider = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    // arrows: true,
+    arrows: false,
     // nextArrow: (
     //   <div className="slick-next">
     //     <i class="fa-light fa-arrow-right"></i>
@@ -32,7 +32,7 @@ const HomeSlider = () => {
   };
 
   return (
-    <div className="relative h-3/5 w-3/4 mt-4 mx-auto ring-secondary-dark shadow-lg rounded-xl">
+    <div className="relative h-3/5 w-3/4 mt-4 mx-auto ring-secondary-dark shadow-lg rounded-xl duration-300 hover:scale-[1.01]">
       <Slider {...settings} className={`h-full w-full  `}>
         {homeSliderProducts.map((product, index) => (
           <div className="" key={index}>

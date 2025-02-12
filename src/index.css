@@ -34,7 +34,12 @@
 }
 
 .slick-slider ul li button {
-  color: #e67e22 !important;
+  background: transparent !important;
+  color: transparent !important;
+  transition: color 0.5s ease;
+}
+.slick-slider ul li button::before {
+  color: #e67e22;
 }
 
 .slick-list {
