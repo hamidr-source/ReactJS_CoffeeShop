@@ -1,18 +1,18 @@
-import React from "react";
-import HomePage from "./Pages/HomePage/HomePage";
-import { useTheme } from "./Context/ThemeContext";
+import React, { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
+const HomePage = lazy(() => import("./Pages/HomePage/HomePage"));
 
 const App = () => {
-  const { isDarkMode } = useTheme();
+
   return (
-    <div
-      className={`
-    ${isDarkMode ? "bg-primary-dark" : "bg-primary-light"}
-    ${isDarkMode ? "text-text-dark" : "text-text-light"}
-  `}
-    >
-      <HomePage />
-    </div>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
+      </Suspense>
+    </Router>
   );
 };
 

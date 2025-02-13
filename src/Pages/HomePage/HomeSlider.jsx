@@ -3,13 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useProducts } from "../../Context/ProductContext";
-import { useTheme } from "../../Context/ThemeContext";
 
 const HomeSlider = () => {
   const { products } = useProducts();
-  const { isDarkMode } = useTheme();
   const homeSliderProducts = products.slice(7, 12);
-
+  
   const settings = {
     dots: true,
     infinite: true,
@@ -41,7 +39,7 @@ const HomeSlider = () => {
             </div>
             <div className="flex flex-col gap-2 px-4">
               <p>{product.name}</p>
-              <p>{product.price}</p>
+              <p className="text-green-500">{product.price} $</p>
               <p>{product.description}</p>
             </div>
           </div>
