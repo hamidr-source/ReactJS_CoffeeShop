@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useProducts } from "../../Context/ProductContext";
+import { Link } from "react-router-dom";
 
 const HomeSlider = () => {
   const { products } = useProducts();
@@ -33,7 +34,7 @@ const HomeSlider = () => {
     <div className="relative h-3/5 w-3/4 mt-4 mx-auto ring-secondary-dark shadow-lg rounded-xl duration-300 hover:scale-[1.01]">
       <Slider {...settings} className={`h-full w-full  `}>
         {homeSliderProducts.map((product, index) => (
-          <div className="" key={index}>
+          <Link to={`/product/${product.id}`} key={index}>
             <div className="h-1/3 w-full">
               <img src={product.image_url} alt={product.name} />
             </div>
@@ -42,7 +43,7 @@ const HomeSlider = () => {
               <p className="text-green-500">{product.price} $</p>
               <p>{product.description}</p>
             </div>
-          </div>
+          </Link>
         ))}
       </Slider>
     </div>
