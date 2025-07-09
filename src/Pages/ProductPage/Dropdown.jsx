@@ -32,7 +32,7 @@ const Dropdown = ({ grindOption }) => {
         </svg>
       </button>
       {isOpen && (
-        <div className="border-b last:border-b-0">
+        <div className="w-64 border rounded shadow-md">
           {grindOption.map((options, index) => (
             <p className="p-4 bg-gray-100" key={index}>
               {options}

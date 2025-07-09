@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Search from "./Search";
 import SideBar from "./SideBar";
 import { useTheme } from "../../Context/ThemeContext";
@@ -21,13 +21,18 @@ const Header = () => {
       },
     },
     closed: {
-      x: "100%",
+      x: "100%", 
       transition: {
         type: "spring",
         stiffness: 200,
         damping: 20,
       },
     },
+  };
+
+  const backdropVariants = {
+    visible: { opacity: 1 },
+    hidden: { opacity: 0 },
   };
 
   useEffect(() => {
@@ -41,6 +46,12 @@ const Header = () => {
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    if (windowSize.width > 425 && mobileMenu) {
+      setMobileMenu(false);
+    }
+  }, [windowSize.width, mobileMenu]);
 
   return (
     <>
@@ -63,32 +74,41 @@ const Header = () => {
           )}
         </div>
       </div>
-      {mobileMenu && (
-        <div
-          className={`fixed inset-0 bg-black/50 z-20 ${
-            isDarkMode ? "bg-black/70" : "bg-gray-200/50"
-          }`}
-          onClick={() => setMobileMenu(false)}
-        ></div>
-      )}
-      <motion.div
-        variants={sidebarVariants}
-        animate={mobileMenu ? "open" : "closed"}
-        className={
-          mobileMenu
-            ? `    ${
-                isDarkMode ? "bg-primary-dark" : "bg-primary-light"
-              } fixed top-0 right-0 shadow-lg w-3/4 h-full z-30 flex flex-col gap-8`
-            : "hidden"
-        }
-      >
-        <div className="mt-3 ml-3">
-          <button onClick={() => setMobileMenu(false)}>
-            <i className="fa-solid fa-arrow-right font-bold mt-3 transition-all duration-500"></i>
-          </button>
-        </div>
-        <SideBar />
-      </motion.div>
+
+      <AnimatePresence>
+        {mobileMenu && ( 
+          <motion.div
+            className={`fixed inset-0 z-20 ${
+              isDarkMode ? "bg-black/70" : "bg-gray-200/50"
+            }`}
+            onClick={() => setMobileMenu(false)}
+            variants={backdropVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            transition={{ duration: 0.3 }}
+          ></motion.div>
+        )}
+
+        {mobileMenu && ( 
+          <motion.div
+            variants={sidebarVariants}
+            initial="closed" 
+            animate="open" 
+            exit="closed" 
+            className={`fixed top-0 right-0 shadow-lg w-3/4 h-full z-30 flex flex-col gap-6 ${
+              isDarkMode ? "bg-primary-dark" : "bg-primary-light"
+            }`}
+          >
+            <div className="mt-3 ml-3">
+              <button onClick={() => setMobileMenu(false)}>
+                <i className="fa-solid fa-arrow-right font-bold mt-3 transition-all duration-1000"></i>
+              </button>
+            </div>
+            <SideBar />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
