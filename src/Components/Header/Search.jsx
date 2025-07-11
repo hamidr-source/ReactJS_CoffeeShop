@@ -45,7 +45,7 @@ const Search = () => {
         {openSearchBar && (
           <>
             <motion.div
-              className="fixed inset-0 bg-black/50 z-40"سایر محتوا
+              className="fixed inset-0 bg-black/50 z-40" 
               variants={backdropVariants}
               initial="hidden"
               animate="visible"
@@ -65,7 +65,6 @@ const Search = () => {
                 <input
                   type="text"
                   className="w-3/4 h-10 outline-none p-2 rounded-lg text-text-light"
-                  placeholder="جستجو کنید..."
                 />
                 <button
                   className="absolute right-4" 
